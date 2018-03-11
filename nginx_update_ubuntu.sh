@@ -8,7 +8,7 @@ NGINX_VER=1.13.0
 #
 # https://github.com/pagespeed/ngx_pagespeed/releases
 #
-PAGESPEED_VER=1.12.34.2
+PAGESPEED_VER="1.12.34.2-beta"
 
 apt-get install libgeoip-dev
 
@@ -20,12 +20,11 @@ cd /usr/local/install/
 wget http://nginx.org/download/nginx-$NGINX_VER.tar.gz
 tar xzvf nginx-$NGINX_VER.tar.gz
 
-
 mkdir ngx_pagespeed/
 cd ngx_pagespeed
-wget https://github.com/pagespeed/ngx_pagespeed/archive/v$PAGESPEED_VER-beta.tar.gz
-tar xzvf v$PAGESPEED_VER-beta.tar.gz 
-cd ngx_pagespeed-$PAGESPEED_VER-beta/
+wget https://github.com/pagespeed/ngx_pagespeed/archive/v$PAGESPEED_VER.tar.gz
+tar xzvf v$PAGESPEED_VER.tar.gz 
+cd ngx_pagespeed-$PAGESPEED_VER/
 wget https://dl.google.com/dl/page-speed/psol/$PAGESPEED_VER-x64.tar.gz
 tar -xzvf $PAGESPEED_VER-x64.tar.gz
 
@@ -73,7 +72,7 @@ cd /usr/local/install/nginx-$NGINX_VER
           --with-stream_ssl_module \
           --with-cc-opt='-g -O2 -fstack-protector-strong -Wformat -Werror=format-security' \
           --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now' \
-          --add-module=/usr/local/install/ngx_pagespeed/ngx_pagespeed-$PAGESPEED_VER-beta
+          --add-module=/usr/local/install/ngx_pagespeed/ngx_pagespeed-$PAGESPEED_VER
 
 make
 make install
