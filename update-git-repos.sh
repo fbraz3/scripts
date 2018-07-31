@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function aupdate_repos(){
+function update_repos(){
         CAMINHO=$1;
 
         for i in `/usr/bin/ls $CAMINHO`; do
@@ -23,6 +23,5 @@ function aupdate_repos(){
         done
 }
 
-
-aupdate_repos /my/home/dir/project1;
-aupdate_repos /my/home/dir/project2;
+update_repos /my/home/dir/project1;
+update_repos /my/home/dir/project2;
